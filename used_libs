@@ -1,10 +1,14 @@
+libSDL2-2.0.so.0
 libasound.so.2
 libc.so.6
 libdl.so.2
+libfftw3.so.3
 libgcc_s.so.1
 libm.so.6
 libmvec.so.1
 libpthread.so.0
 libpulse-simple.so.0
 libpulse.so.0
+libsox.so.3
 libstdc++.so.6
+libxml2.so.2

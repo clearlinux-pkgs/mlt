@@ -3,3 +3,4 @@ alsa-lib-dev
 pkgconfig(alsa)
 pkgconfig(libpulse)
 pkgconfig(libpulse-simple)
+pkgconfig(x11)

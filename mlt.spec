@@ -4,7 +4,7 @@
 #
 Name     : mlt
 Version  : 6.12.0
-Release  : 1
+Release  : 2
 URL      : https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 Summary  : An open source multimedia framework
@@ -14,12 +14,18 @@ Requires: mlt-bin = %{version}-%{release}
 Requires: mlt-data = %{version}-%{release}
 Requires: mlt-lib = %{version}-%{release}
 Requires: mlt-license = %{version}-%{release}
+BuildRequires : SDL2-dev
 BuildRequires : alsa-lib-dev
 BuildRequires : buildreq-cpan
 BuildRequires : buildreq-qmake
+BuildRequires : fftw-dev
+BuildRequires : libxml2-dev
+BuildRequires : opencv-dev
 BuildRequires : pkgconfig(alsa)
 BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-simple)
+BuildRequires : pkgconfig(x11)
+BuildRequires : sox-dev
 
 %description
 --------------------
@@ -82,12 +88,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550428638
-%configure --disable-static
+export SOURCE_DATE_EPOCH=1550428871
+%configure --disable-static --enable-gpl3 --enable-opencv
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1550428638
+export SOURCE_DATE_EPOCH=1550428871
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp COPYING %{buildroot}/usr/share/package-licenses/mlt/COPYING
@@ -403,11 +409,20 @@ cp src/modules/plus/ebur128/COPYING %{buildroot}/usr/share/package-licenses/mlt/
 /usr/share/mlt/profiles/vcd_ntsc
 /usr/share/mlt/profiles/vcd_pal
 /usr/share/mlt/rtaudio/consumer_rtaudio.yml
+/usr/share/mlt/sdl2/consumer_sdl2.yml
+/usr/share/mlt/sdl2/consumer_sdl2_audio.yml
+/usr/share/mlt/sox/filter_sox.yml
+/usr/share/mlt/sox/filter_sox_effect.yml
 /usr/share/mlt/vmfx/filter_chroma.yml
 /usr/share/mlt/vmfx/filter_chroma_hold.yml
 /usr/share/mlt/vmfx/filter_mono.yml
 /usr/share/mlt/vmfx/filter_shape.yml
 /usr/share/mlt/vmfx/producer_pgm.yml
+/usr/share/mlt/xml/consumer_xml.yml
+/usr/share/mlt/xml/mlt-xml.dtd
+/usr/share/mlt/xml/producer_xml-nogl.yml
+/usr/share/mlt/xml/producer_xml-string.yml
+/usr/share/mlt/xml/producer_xml.yml
 
 %files dev
 %defattr(-,root,root,-)
@@ -481,7 +496,10 @@ cp src/modules/plus/ebur128/COPYING %{buildroot}/usr/share/package-licenses/mlt/
 /usr/lib64/mlt/libmltoldfilm.so
 /usr/lib64/mlt/libmltplus.so
 /usr/lib64/mlt/libmltrtaudio.so
+/usr/lib64/mlt/libmltsdl2.so
+/usr/lib64/mlt/libmltsox.so
 /usr/lib64/mlt/libmltvmfx.so
+/usr/lib64/mlt/libmltxml.so
 
 %files license
 %defattr(0644,root,root,0755)
