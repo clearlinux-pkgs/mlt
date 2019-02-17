@@ -4,7 +4,7 @@
 #
 Name     : mlt
 Version  : 6.12.0
-Release  : 4
+Release  : 5
 URL      : https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 Summary  : An open source multimedia framework
@@ -83,50 +83,22 @@ license components for the mlt package.
 
 %prep
 %setup -q -n mlt-6.12.0
-pushd ..
-cp -a mlt-6.12.0 buildavx2
-popd
-pushd ..
-cp -a mlt-6.12.0 buildavx512
-popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550429432
+export SOURCE_DATE_EPOCH=1550429691
 %configure --disable-static --enable-gpl3 --enable-opencv
 make  %{?_smp_mflags}
 
-unset PKG_CONFIG_PATH
-pushd ../buildavx2/
-export CFLAGS="$CFLAGS -m64 -march=haswell"
-export CXXFLAGS="$CXXFLAGS -m64 -march=haswell"
-export LDFLAGS="$LDFLAGS -m64 -march=haswell"
-%configure --disable-static --enable-gpl3 --enable-opencv
-make  %{?_smp_mflags}
-popd
-unset PKG_CONFIG_PATH
-pushd ../buildavx512/
-export CFLAGS="$CFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
-export CXXFLAGS="$CXXFLAGS -m64 -march=skylake-avx512 -mprefer-vector-width=512"
-export LDFLAGS="$LDFLAGS -m64 -march=skylake-avx512"
-%configure --disable-static --enable-gpl3 --enable-opencv
-make  %{?_smp_mflags}
-popd
 %install
-export SOURCE_DATE_EPOCH=1550429432
+export SOURCE_DATE_EPOCH=1550429691
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp COPYING %{buildroot}/usr/share/package-licenses/mlt/COPYING
 cp src/modules/plus/ebur128/COPYING %{buildroot}/usr/share/package-licenses/mlt/src_modules_plus_ebur128_COPYING
-pushd ../buildavx512/
-%make_install_avx512
-popd
-pushd ../buildavx2/
-%make_install_avx2
-popd
 %make_install
 
 %files
@@ -134,8 +106,6 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
-/usr/bin/haswell/avx512_1/melt
-/usr/bin/haswell/melt
 /usr/bin/melt
 
 %files data
@@ -514,9 +484,6 @@ popd
 /usr/include/mlt/framework/mlt_transition.h
 /usr/include/mlt/framework/mlt_types.h
 /usr/include/mlt/framework/mlt_version.h
-/usr/lib64/haswell/avx512_1/libmlt.so
-/usr/lib64/haswell/libmlt++.so
-/usr/lib64/haswell/libmlt.so
 /usr/lib64/libmlt++.so
 /usr/lib64/libmlt.so
 /usr/lib64/pkgconfig/mlt++.pc
@@ -524,44 +491,20 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/haswell/avx512_1/libmlt.so.6
-/usr/lib64/haswell/avx512_1/libmlt.so.6.12.0
-/usr/lib64/haswell/libmlt++.so.3
-/usr/lib64/haswell/libmlt++.so.6.12.0
-/usr/lib64/haswell/libmlt.so.6
-/usr/lib64/haswell/libmlt.so.6.12.0
 /usr/lib64/libmlt++.so.3
 /usr/lib64/libmlt++.so.6.12.0
 /usr/lib64/libmlt.so.6
 /usr/lib64/libmlt.so.6.12.0
 /usr/lib64/mlt/libmltcore.so
-/usr/lib64/mlt/libmltcore.so.avx2
-/usr/lib64/mlt/libmltcore.so.avx512
 /usr/lib64/mlt/libmltdecklink.so
-/usr/lib64/mlt/libmltdecklink.so.avx2
 /usr/lib64/mlt/libmltgtk2.so
-/usr/lib64/mlt/libmltgtk2.so.avx2
-/usr/lib64/mlt/libmltgtk2.so.avx512
 /usr/lib64/mlt/libmltkdenlive.so
-/usr/lib64/mlt/libmltkdenlive.so.avx2
-/usr/lib64/mlt/libmltkdenlive.so.avx512
 /usr/lib64/mlt/libmltoldfilm.so
-/usr/lib64/mlt/libmltoldfilm.so.avx2
 /usr/lib64/mlt/libmltplus.so
-/usr/lib64/mlt/libmltplus.so.avx2
-/usr/lib64/mlt/libmltplus.so.avx512
 /usr/lib64/mlt/libmltrtaudio.so
-/usr/lib64/mlt/libmltrtaudio.so.avx2
-/usr/lib64/mlt/libmltrtaudio.so.avx512
 /usr/lib64/mlt/libmltsdl2.so
-/usr/lib64/mlt/libmltsdl2.so.avx2
-/usr/lib64/mlt/libmltsdl2.so.avx512
 /usr/lib64/mlt/libmltsox.so
-/usr/lib64/mlt/libmltsox.so.avx2
-/usr/lib64/mlt/libmltsox.so.avx512
 /usr/lib64/mlt/libmltvmfx.so
-/usr/lib64/mlt/libmltvmfx.so.avx2
-/usr/lib64/mlt/libmltvmfx.so.avx512
 /usr/lib64/mlt/libmltxml.so
 
 %files license
