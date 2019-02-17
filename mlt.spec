@@ -4,7 +4,7 @@
 #
 Name     : mlt
 Version  : 6.12.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v6.12.0/mlt-6.12.0.tar.gz
 Summary  : An open source multimedia framework
@@ -19,6 +19,7 @@ BuildRequires : alsa-lib-dev
 BuildRequires : buildreq-cpan
 BuildRequires : buildreq-qmake
 BuildRequires : fftw-dev
+BuildRequires : gtk+-dev
 BuildRequires : libxml2-dev
 BuildRequires : opencv-dev
 BuildRequires : pkgconfig(alsa)
@@ -88,12 +89,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1550428871
+export SOURCE_DATE_EPOCH=1550429094
 %configure --disable-static --enable-gpl3 --enable-opencv
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1550428871
+export SOURCE_DATE_EPOCH=1550429094
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp COPYING %{buildroot}/usr/share/package-licenses/mlt/COPYING
@@ -156,6 +157,10 @@ cp src/modules/plus/ebur128/COPYING %{buildroot}/usr/share/package-licenses/mlt/
 /usr/share/mlt/feeds/PAL/etv.properties
 /usr/share/mlt/feeds/PAL/example.properties
 /usr/share/mlt/feeds/PAL/obscure.properties
+/usr/share/mlt/gtk2/consumer_gtk2_preview.yml
+/usr/share/mlt/gtk2/filter_rescale.yml
+/usr/share/mlt/gtk2/producer_pango.yml
+/usr/share/mlt/gtk2/producer_pixbuf.yml
 /usr/share/mlt/kdenlive/filter_boxblur.yml
 /usr/share/mlt/kdenlive/filter_freeze.yml
 /usr/share/mlt/kdenlive/filter_wave.yml
@@ -492,6 +497,7 @@ cp src/modules/plus/ebur128/COPYING %{buildroot}/usr/share/package-licenses/mlt/
 /usr/lib64/libmlt.so.6.12.0
 /usr/lib64/mlt/libmltcore.so
 /usr/lib64/mlt/libmltdecklink.so
+/usr/lib64/mlt/libmltgtk2.so
 /usr/lib64/mlt/libmltkdenlive.so
 /usr/lib64/mlt/libmltoldfilm.so
 /usr/lib64/mlt/libmltplus.so

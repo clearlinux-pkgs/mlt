@@ -5,3 +5,4 @@ libxml2-dev
 sox-dev
 opencv-dev
 fftw-dev
+gtk+-dev
