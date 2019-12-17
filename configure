@@ -1,1 +1,2 @@
---enable-gpl3 --enable-opencv
+--enable-gpl3
+--enable-opencv

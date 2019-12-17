@@ -4,10 +4,10 @@
 #
 Name     : mlt
 Version  : 6.18.0
-Release  : 7
+Release  : 8
 URL      : https://github.com/mltframework/mlt/releases/download/v6.18.0/mlt-6.18.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v6.18.0/mlt-6.18.0.tar.gz
-Summary  : An open source multimedia framework
+Summary  : MLT multimedia framework
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
 Requires: mlt-bin = %{version}-%{release}
@@ -15,29 +15,19 @@ Requires: mlt-data = %{version}-%{release}
 Requires: mlt-lib = %{version}-%{release}
 Requires: mlt-license = %{version}-%{release}
 BuildRequires : SDL2-dev
+BuildRequires : alsa-lib-dev
 BuildRequires : buildreq-cmake
+BuildRequires : buildreq-configure
 BuildRequires : buildreq-cpan
 BuildRequires : buildreq-qmake
 BuildRequires : fftw-dev
-BuildRequires : glibc-dev
 BuildRequires : gtk+-dev
 BuildRequires : libxml2-dev
 BuildRequires : opencv-dev
-BuildRequires : pkg-config
 BuildRequires : pkgconfig(alsa)
-BuildRequires : pkgconfig(fftw3)
-BuildRequires : pkgconfig(fontconfig)
-BuildRequires : pkgconfig(libavcodec)
-BuildRequires : pkgconfig(libavdevice)
-BuildRequires : pkgconfig(libavfilter)
-BuildRequires : pkgconfig(libavutil)
-BuildRequires : pkgconfig(libexif)
+BuildRequires : pkgconfig(libpulse)
 BuildRequires : pkgconfig(libpulse-simple)
-BuildRequires : pkgconfig(libswresample)
-BuildRequires : pkgconfig(libswscale)
-BuildRequires : pkgconfig(libxml-2.0)
-BuildRequires : pkgconfig(sdl2)
-BuildRequires : qtbase-dev mesa-dev
+BuildRequires : pkgconfig(x11)
 BuildRequires : qtsvg-dev
 BuildRequires : sox-dev
 
@@ -72,7 +62,6 @@ Requires: mlt-bin = %{version}-%{release}
 Requires: mlt-data = %{version}-%{release}
 Provides: mlt-devel = %{version}-%{release}
 Requires: mlt = %{version}-%{release}
-Requires: mlt = %{version}-%{release}
 
 %description dev
 dev components for the mlt package.
@@ -105,28 +94,23 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1574442628
-mkdir -p clr-build
-pushd clr-build
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1576566476
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
 export FFLAGS="$CFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-%cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
-popd
+%configure --disable-static --enable-gpl3 \
+--enable-opencv
+make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1574442628
+export SOURCE_DATE_EPOCH=1576566476
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp %{_builddir}/mlt-6.18.0/COPYING %{buildroot}/usr/share/package-licenses/mlt/3704f4680301a60004b20f94e0b5b8c7ff1484a9
 cp %{_builddir}/mlt-6.18.0/src/modules/plus/ebur128/COPYING %{buildroot}/usr/share/package-licenses/mlt/2627ff03833f74ed51a7f43c55d30b249b6a0707
-pushd clr-build
 %make_install
-popd
 
 %files
 %defattr(-,root,root,-)
@@ -137,9 +121,6 @@ popd
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/mlt/avformat/blacklist.txt
-/usr/share/mlt/avformat/consumer_avformat.yml
-/usr/share/mlt/avformat/producer_avformat.yml
 /usr/share/mlt/core/consumer_multi.yml
 /usr/share/mlt/core/data_fx.properties
 /usr/share/mlt/core/filter_audiomap.yml
@@ -197,22 +178,24 @@ popd
 /usr/share/mlt/kdenlive/filter_freeze.yml
 /usr/share/mlt/kdenlive/filter_wave.yml
 /usr/share/mlt/kdenlive/producer_framebuffer.yml
-/usr/share/mlt/mltplusgpl/consumer_cbrts.yml
-/usr/share/mlt/mltplusgpl/filter_burningtv.yml
-/usr/share/mlt/mltplusgpl/filter_lumaliftgaingamma.yml
-/usr/share/mlt/mltplusgpl/filter_rotoscoping.yml
-/usr/share/mlt/motion_est/filter_autotrack_rectangle.yml
-/usr/share/mlt/motion_est/filter_motion_est.yml
-/usr/share/mlt/motion_est/filter_vismv.yml
-/usr/share/mlt/motion_est/producer_slowmotion.yml
-/usr/share/mlt/normalize/filter_audiolevel.yml
-/usr/share/mlt/normalize/filter_volume.yml
+/usr/share/mlt/metaschema.yaml
+/usr/share/mlt/oldfilm/dust1.svg
+/usr/share/mlt/oldfilm/dust2.svg
+/usr/share/mlt/oldfilm/dust3.svg
+/usr/share/mlt/oldfilm/dust4.svg
+/usr/share/mlt/oldfilm/dust5.svg
+/usr/share/mlt/oldfilm/fdust.svg
 /usr/share/mlt/oldfilm/filter_dust.yml
 /usr/share/mlt/oldfilm/filter_grain.yml
 /usr/share/mlt/oldfilm/filter_lines.yml
 /usr/share/mlt/oldfilm/filter_oldfilm.yml
 /usr/share/mlt/oldfilm/filter_tcolor.yml
 /usr/share/mlt/oldfilm/filter_vignette.yml
+/usr/share/mlt/oldfilm/grain.svg
+/usr/share/mlt/oldfilm/lines.svg
+/usr/share/mlt/oldfilm/oldfilm.svg
+/usr/share/mlt/oldfilm/tcolor.svg
+/usr/share/mlt/oldfilm/vignette.svg
 /usr/share/mlt/plus/consumer_blipflash.yml
 /usr/share/mlt/plus/filter_affine.yml
 /usr/share/mlt/plus/filter_charcoal.yml
@@ -233,19 +216,179 @@ popd
 /usr/share/mlt/plus/producer_blipflash.yml
 /usr/share/mlt/plus/producer_count.yml
 /usr/share/mlt/plus/transition_affine.yml
-/usr/share/mlt/qt/filter_audiospectrum.yml
-/usr/share/mlt/qt/filter_audiowaveform.yml
-/usr/share/mlt/qt/filter_lightshow.yml
-/usr/share/mlt/qt/filter_qtblend.yml
-/usr/share/mlt/qt/filter_qtext.yml
-/usr/share/mlt/qt/producer_kdenlivetitle.yml
-/usr/share/mlt/qt/producer_qimage.yml
-/usr/share/mlt/qt/producer_qtext.yml
-/usr/share/mlt/qt/transition_qtblend.yml
-/usr/share/mlt/qt/transition_vqm.yml
+/usr/share/mlt/presets/consumer/avformat/AAC
+/usr/share/mlt/presets/consumer/avformat/Flash
+/usr/share/mlt/presets/consumer/avformat/GIF
+/usr/share/mlt/presets/consumer/avformat/MJPEG
+/usr/share/mlt/presets/consumer/avformat/MP3
+/usr/share/mlt/presets/consumer/avformat/MPEG-2
+/usr/share/mlt/presets/consumer/avformat/MPEG-4
+/usr/share/mlt/presets/consumer/avformat/MPEG-4-ASP
+/usr/share/mlt/presets/consumer/avformat/Sony-PSP
+/usr/share/mlt/presets/consumer/avformat/Vorbis
+/usr/share/mlt/presets/consumer/avformat/WAV
+/usr/share/mlt/presets/consumer/avformat/WMA
+/usr/share/mlt/presets/consumer/avformat/WMV
+/usr/share/mlt/presets/consumer/avformat/XDCAM-HD422
+/usr/share/mlt/presets/consumer/avformat/YouTube
+"/usr/share/mlt/presets/consumer/avformat/alpha/Quicktime Animation"
+"/usr/share/mlt/presets/consumer/avformat/alpha/Ut Video"
+/usr/share/mlt/presets/consumer/avformat/alpha/vp8
+/usr/share/mlt/presets/consumer/avformat/alpha/vp9
+/usr/share/mlt/presets/consumer/avformat/atsc_1080i_50/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080i_5994/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_2398/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_24/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_25/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_2997/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_30/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_50/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_5994/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_1080p_60/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_720p_2398/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_720p_50/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_720p_5994/DNxHD
+/usr/share/mlt/presets/consumer/avformat/atsc_720p_60/DNxHD
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc/D10
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc/DV
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc/DVCPRO50
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc/DVD
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc_wide/D10
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc_wide/DV
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc_wide/DVCPRO50
+/usr/share/mlt/presets/consumer/avformat/dv_ntsc_wide/DVD
+/usr/share/mlt/presets/consumer/avformat/dv_pal/D10
+/usr/share/mlt/presets/consumer/avformat/dv_pal/DV
+/usr/share/mlt/presets/consumer/avformat/dv_pal/DVCPRO50
+/usr/share/mlt/presets/consumer/avformat/dv_pal/DVD
+/usr/share/mlt/presets/consumer/avformat/dv_pal_wide/D10
+/usr/share/mlt/presets/consumer/avformat/dv_pal_wide/DV
+/usr/share/mlt/presets/consumer/avformat/dv_pal_wide/DVCPRO50
+/usr/share/mlt/presets/consumer/avformat/dv_pal_wide/DVD
+/usr/share/mlt/presets/consumer/avformat/hdv_1080_25p/HDV
+/usr/share/mlt/presets/consumer/avformat/hdv_1080_30p/HDV
+/usr/share/mlt/presets/consumer/avformat/hdv_1080_50i/HDV
+/usr/share/mlt/presets/consumer/avformat/hdv_1080_60i/HDV
+/usr/share/mlt/presets/consumer/avformat/hdv_720_25p/HDV
+/usr/share/mlt/presets/consumer/avformat/hdv_720_30p/HDV
+/usr/share/mlt/presets/consumer/avformat/hdv_720_50p/HDV
+/usr/share/mlt/presets/consumer/avformat/hdv_720_60p/HDV
+/usr/share/mlt/presets/consumer/avformat/intermediate/MJPEG
+/usr/share/mlt/presets/consumer/avformat/intermediate/MPEG-2
+/usr/share/mlt/presets/consumer/avformat/intermediate/MPEG-4
+/usr/share/mlt/presets/consumer/avformat/intermediate/ProRes
+/usr/share/mlt/presets/consumer/avformat/intermediate/ProRes-Kostya
+/usr/share/mlt/presets/consumer/avformat/lossless/FFV1
+/usr/share/mlt/presets/consumer/avformat/lossless/H.264
+/usr/share/mlt/presets/consumer/avformat/lossless/HuffYUV
+"/usr/share/mlt/presets/consumer/avformat/lossless/Ut Video"
+/usr/share/mlt/presets/consumer/avformat/stills/BMP
+/usr/share/mlt/presets/consumer/avformat/stills/DPX
+/usr/share/mlt/presets/consumer/avformat/stills/JPEG
+/usr/share/mlt/presets/consumer/avformat/stills/PNG
+/usr/share/mlt/presets/consumer/avformat/stills/PPM
+/usr/share/mlt/presets/consumer/avformat/stills/TGA
+/usr/share/mlt/presets/consumer/avformat/stills/TIFF
+/usr/share/mlt/presets/consumer/avformat/vp9
+/usr/share/mlt/presets/consumer/avformat/webm
+/usr/share/mlt/presets/consumer/avformat/webm-pass1
+/usr/share/mlt/presets/consumer/avformat/x264-medium
+/usr/share/mlt/presets/consumer/avformat/x264-medium-baseline
+/usr/share/mlt/presets/consumer/avformat/x264-medium-main
+/usr/share/mlt/presets/consumer/avformat/x264-medium-pass1
+/usr/share/mlt/presets/consumer/avformat/x265-medium
+/usr/share/mlt/presets/consumer/avformat/x265-medium-pass1
+/usr/share/mlt/presets/filter/brightness/from_black
+/usr/share/mlt/presets/filter/brightness/to_black
+/usr/share/mlt/presets/filter/movit.blur/blur_in
+/usr/share/mlt/presets/filter/movit.blur/blur_in_out
+/usr/share/mlt/presets/filter/movit.blur/blur_out
+/usr/share/mlt/presets/filter/movit.opacity/fade_in
+/usr/share/mlt/presets/filter/movit.opacity/fade_in_out
+/usr/share/mlt/presets/filter/movit.opacity/fade_out
+/usr/share/mlt/presets/filter/volume/fade_in
+/usr/share/mlt/presets/filter/volume/fade_out
+/usr/share/mlt/profiles/atsc_1080i_50
+/usr/share/mlt/profiles/atsc_1080i_5994
+/usr/share/mlt/profiles/atsc_1080i_60
+/usr/share/mlt/profiles/atsc_1080p_2398
+/usr/share/mlt/profiles/atsc_1080p_24
+/usr/share/mlt/profiles/atsc_1080p_25
+/usr/share/mlt/profiles/atsc_1080p_2997
+/usr/share/mlt/profiles/atsc_1080p_30
+/usr/share/mlt/profiles/atsc_1080p_50
+/usr/share/mlt/profiles/atsc_1080p_5994
+/usr/share/mlt/profiles/atsc_1080p_60
+/usr/share/mlt/profiles/atsc_720p_2398
+/usr/share/mlt/profiles/atsc_720p_24
+/usr/share/mlt/profiles/atsc_720p_25
+/usr/share/mlt/profiles/atsc_720p_2997
+/usr/share/mlt/profiles/atsc_720p_30
+/usr/share/mlt/profiles/atsc_720p_50
+/usr/share/mlt/profiles/atsc_720p_5994
+/usr/share/mlt/profiles/atsc_720p_60
+/usr/share/mlt/profiles/cif_15
+/usr/share/mlt/profiles/cif_ntsc
+/usr/share/mlt/profiles/cif_pal
+/usr/share/mlt/profiles/cvd_ntsc
+/usr/share/mlt/profiles/cvd_pal
+/usr/share/mlt/profiles/dv_ntsc
+/usr/share/mlt/profiles/dv_ntsc_wide
+/usr/share/mlt/profiles/dv_pal
+/usr/share/mlt/profiles/dv_pal_wide
+/usr/share/mlt/profiles/hdv_1080_25p
+/usr/share/mlt/profiles/hdv_1080_30p
+/usr/share/mlt/profiles/hdv_1080_50i
+/usr/share/mlt/profiles/hdv_1080_60i
+/usr/share/mlt/profiles/hdv_720_25p
+/usr/share/mlt/profiles/hdv_720_30p
+/usr/share/mlt/profiles/hdv_720_50p
+/usr/share/mlt/profiles/hdv_720_60p
+/usr/share/mlt/profiles/qcif_15
+/usr/share/mlt/profiles/qcif_ntsc
+/usr/share/mlt/profiles/qcif_pal
+/usr/share/mlt/profiles/qhd_1440p_2398
+/usr/share/mlt/profiles/qhd_1440p_24
+/usr/share/mlt/profiles/qhd_1440p_25
+/usr/share/mlt/profiles/qhd_1440p_2997
+/usr/share/mlt/profiles/qhd_1440p_30
+/usr/share/mlt/profiles/qhd_1440p_50
+/usr/share/mlt/profiles/qhd_1440p_5994
+/usr/share/mlt/profiles/qhd_1440p_60
+/usr/share/mlt/profiles/quarter_15
+/usr/share/mlt/profiles/quarter_ntsc
+/usr/share/mlt/profiles/quarter_ntsc_wide
+/usr/share/mlt/profiles/quarter_pal
+/usr/share/mlt/profiles/quarter_pal_wide
+/usr/share/mlt/profiles/sdi_486i_5994
+/usr/share/mlt/profiles/sdi_486p_2398
+/usr/share/mlt/profiles/square_1080p_30
+/usr/share/mlt/profiles/square_1080p_60
+/usr/share/mlt/profiles/square_ntsc
+/usr/share/mlt/profiles/square_ntsc_wide
+/usr/share/mlt/profiles/square_pal
+/usr/share/mlt/profiles/square_pal_wide
+/usr/share/mlt/profiles/svcd_ntsc
+/usr/share/mlt/profiles/svcd_ntsc_wide
+/usr/share/mlt/profiles/svcd_pal
+/usr/share/mlt/profiles/svcd_pal_wide
+/usr/share/mlt/profiles/uhd_2160p_2398
+/usr/share/mlt/profiles/uhd_2160p_24
+/usr/share/mlt/profiles/uhd_2160p_25
+/usr/share/mlt/profiles/uhd_2160p_2997
+/usr/share/mlt/profiles/uhd_2160p_30
+/usr/share/mlt/profiles/uhd_2160p_50
+/usr/share/mlt/profiles/uhd_2160p_5994
+/usr/share/mlt/profiles/uhd_2160p_60
+/usr/share/mlt/profiles/vcd_ntsc
+/usr/share/mlt/profiles/vcd_pal
+/usr/share/mlt/profiles/vertical_hd_30
+/usr/share/mlt/profiles/vertical_hd_60
 /usr/share/mlt/rtaudio/consumer_rtaudio.yml
 /usr/share/mlt/sdl2/consumer_sdl2.yml
 /usr/share/mlt/sdl2/consumer_sdl2_audio.yml
+/usr/share/mlt/sox/filter_sox.yml
+/usr/share/mlt/sox/filter_sox_effect.yml
 /usr/share/mlt/vmfx/filter_chroma.yml
 /usr/share/mlt/vmfx/filter_chroma_hold.yml
 /usr/share/mlt/vmfx/filter_mono.yml
@@ -284,35 +427,35 @@ popd
 /usr/include/mlt++/MltTokeniser.h
 /usr/include/mlt++/MltTractor.h
 /usr/include/mlt++/MltTransition.h
-/usr/include/mlt/mlt.h
-/usr/include/mlt/mlt_animation.h
-/usr/include/mlt/mlt_cache.h
-/usr/include/mlt/mlt_consumer.h
-/usr/include/mlt/mlt_deque.h
-/usr/include/mlt/mlt_events.h
-/usr/include/mlt/mlt_factory.h
-/usr/include/mlt/mlt_field.h
-/usr/include/mlt/mlt_filter.h
-/usr/include/mlt/mlt_frame.h
-/usr/include/mlt/mlt_geometry.h
-/usr/include/mlt/mlt_log.h
-/usr/include/mlt/mlt_luma_map.h
-/usr/include/mlt/mlt_multitrack.h
-/usr/include/mlt/mlt_parser.h
-/usr/include/mlt/mlt_playlist.h
-/usr/include/mlt/mlt_pool.h
-/usr/include/mlt/mlt_producer.h
-/usr/include/mlt/mlt_profile.h
-/usr/include/mlt/mlt_properties.h
-/usr/include/mlt/mlt_property.h
-/usr/include/mlt/mlt_repository.h
-/usr/include/mlt/mlt_service.h
-/usr/include/mlt/mlt_slices.h
-/usr/include/mlt/mlt_tokeniser.h
-/usr/include/mlt/mlt_tractor.h
-/usr/include/mlt/mlt_transition.h
-/usr/include/mlt/mlt_types.h
-/usr/include/mlt/mlt_version.h
+/usr/include/mlt/framework/mlt.h
+/usr/include/mlt/framework/mlt_animation.h
+/usr/include/mlt/framework/mlt_cache.h
+/usr/include/mlt/framework/mlt_consumer.h
+/usr/include/mlt/framework/mlt_deque.h
+/usr/include/mlt/framework/mlt_events.h
+/usr/include/mlt/framework/mlt_factory.h
+/usr/include/mlt/framework/mlt_field.h
+/usr/include/mlt/framework/mlt_filter.h
+/usr/include/mlt/framework/mlt_frame.h
+/usr/include/mlt/framework/mlt_geometry.h
+/usr/include/mlt/framework/mlt_log.h
+/usr/include/mlt/framework/mlt_luma_map.h
+/usr/include/mlt/framework/mlt_multitrack.h
+/usr/include/mlt/framework/mlt_parser.h
+/usr/include/mlt/framework/mlt_playlist.h
+/usr/include/mlt/framework/mlt_pool.h
+/usr/include/mlt/framework/mlt_producer.h
+/usr/include/mlt/framework/mlt_profile.h
+/usr/include/mlt/framework/mlt_properties.h
+/usr/include/mlt/framework/mlt_property.h
+/usr/include/mlt/framework/mlt_repository.h
+/usr/include/mlt/framework/mlt_service.h
+/usr/include/mlt/framework/mlt_slices.h
+/usr/include/mlt/framework/mlt_tokeniser.h
+/usr/include/mlt/framework/mlt_tractor.h
+/usr/include/mlt/framework/mlt_transition.h
+/usr/include/mlt/framework/mlt_types.h
+/usr/include/mlt/framework/mlt_version.h
 /usr/lib64/libmlt++.so
 /usr/lib64/libmlt.so
 /usr/lib64/pkgconfig/mlt++.pc
@@ -321,23 +464,19 @@ popd
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/libmlt++.so.3
+/usr/lib64/libmlt++.so.6.18.0
 /usr/lib64/libmlt.so.6
-/usr/lib64/libmlt.so.6.17.0
-/usr/lib64/mlt/libmltavformat.so
+/usr/lib64/libmlt.so.6.18.0
 /usr/lib64/mlt/libmltcore.so
 /usr/lib64/mlt/libmltdecklink.so
 /usr/lib64/mlt/libmltgtk2.so
 /usr/lib64/mlt/libmltkdenlive.so
-/usr/lib64/mlt/libmltmotion_est.so
-/usr/lib64/mlt/libmltnormalize.so
 /usr/lib64/mlt/libmltoldfilm.so
 /usr/lib64/mlt/libmltplus.so
-/usr/lib64/mlt/libmltplusgpl.so
-/usr/lib64/mlt/libmltqt.so
 /usr/lib64/mlt/libmltrtaudio.so
 /usr/lib64/mlt/libmltsdl2.so
+/usr/lib64/mlt/libmltsox.so
 /usr/lib64/mlt/libmltvmfx.so
-/usr/lib64/mlt/libmltxine.so
 /usr/lib64/mlt/libmltxml.so
 
 %files license
