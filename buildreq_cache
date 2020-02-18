@@ -1,7 +1,5 @@
-6.18.0
+6.20.0
 alsa-lib-dev
 pkgconfig(alsa)
 pkgconfig(libpulse)
 pkgconfig(libpulse-simple)
-pkgconfig(x11)
-qtsvg-dev
