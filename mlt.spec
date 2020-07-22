@@ -4,7 +4,7 @@
 #
 Name     : mlt
 Version  : 6.20.0
-Release  : 10
+Release  : 11
 URL      : https://github.com/mltframework/mlt/releases/download/v6.20.0/mlt-6.20.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v6.20.0/mlt-6.20.0.tar.gz
 Summary  : An open source multimedia framework
