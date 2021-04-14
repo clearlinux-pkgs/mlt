@@ -1,4 +1,4 @@
-6.26.0
+6.26.1
 alsa-lib-dev
 pkgconfig(alsa)
 pkgconfig(libpulse)
