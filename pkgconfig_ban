@@ -6,3 +6,6 @@ GLOBAL
 libebur128
 rtaudio
 vidstab
+movit
+rubberband
+fftw

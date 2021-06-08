@@ -1,5 +1,3 @@
-6.26.1
-alsa-lib-dev
-pkgconfig(alsa)
-pkgconfig(libpulse)
+7.0.1
 pkgconfig(libpulse-simple)
+qtsvg-dev
