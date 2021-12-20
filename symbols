@@ -13,6 +13,7 @@ libmlt++-7.so.7:MLTPP_6.6.0
 libmlt++-7.so.7:MLTPP_6.8.0
 libmlt++-7.so.7:MLTPP_7.0.0
 libmlt++-7.so.7:MLTPP_7.1.0
+libmlt++-7.so.7:MLT_7.4.0
 libmlt++-7.so.7:_ZN3Mlt10Multitrack10disconnectEi
 libmlt++-7.so.7:_ZN3Mlt10Multitrack12get_producerEv
 libmlt++-7.so.7:_ZN3Mlt10Multitrack14get_multitrackEv
@@ -82,6 +83,7 @@ libmlt++-7.so.7:_ZN3Mlt10Properties7dec_refEv
 libmlt++-7.so.7:_ZN3Mlt10Properties7get_intEPKc
 libmlt++-7.so.7:_ZN3Mlt10Properties7inc_refEv
 libmlt++-7.so.7:_ZN3Mlt10Properties7inheritERS0_
+libmlt++-7.so.7:_ZN3Mlt10Properties7is_animEPKc
 libmlt++-7.so.7:_ZN3Mlt10Properties7unblockEPv
 libmlt++-7.so.7:_ZN3Mlt10Properties8anim_getEPKcii
 libmlt++-7.so.7:_ZN3Mlt10Properties8anim_setEPKc8mlt_rectii17mlt_keyframe_type
@@ -197,13 +199,22 @@ libmlt++-7.so.7:_ZN3Mlt4Link12get_producerEv
 libmlt++-7.so.7:_ZN3Mlt4Link8get_linkEv
 libmlt++-7.so.7:_ZN3Mlt4LinkC1EP10mlt_link_s
 libmlt++-7.so.7:_ZN3Mlt4LinkC1EPKcS2_
+libmlt++-7.so.7:_ZN3Mlt4LinkC1EPS0_
+libmlt++-7.so.7:_ZN3Mlt4LinkC1ERKS0_
+libmlt++-7.so.7:_ZN3Mlt4LinkC1ERNS_7ServiceE
+libmlt++-7.so.7:_ZN3Mlt4LinkC1ERS0_
 libmlt++-7.so.7:_ZN3Mlt4LinkC1Ev
 libmlt++-7.so.7:_ZN3Mlt4LinkC2EP10mlt_link_s
 libmlt++-7.so.7:_ZN3Mlt4LinkC2EPKcS2_
+libmlt++-7.so.7:_ZN3Mlt4LinkC2EPS0_
+libmlt++-7.so.7:_ZN3Mlt4LinkC2ERKS0_
+libmlt++-7.so.7:_ZN3Mlt4LinkC2ERNS_7ServiceE
+libmlt++-7.so.7:_ZN3Mlt4LinkC2ERS0_
 libmlt++-7.so.7:_ZN3Mlt4LinkC2Ev
 libmlt++-7.so.7:_ZN3Mlt4LinkD0Ev
 libmlt++-7.so.7:_ZN3Mlt4LinkD1Ev
 libmlt++-7.so.7:_ZN3Mlt4LinkD2Ev
+libmlt++-7.so.7:_ZN3Mlt4LinkaSERKS0_
 libmlt++-7.so.7:_ZN3Mlt5Audio10set_formatE16mlt_audio_format
 libmlt++-7.so.7:_ZN3Mlt5Audio10set_layoutE18mlt_channel_layout
 libmlt++-7.so.7:_ZN3Mlt5Audio11set_samplesEi
@@ -335,6 +346,7 @@ libmlt++-7.so.7:_ZN3Mlt6Filter7processERNS_5FrameE
 libmlt++-7.so.7:_ZN3Mlt6Filter9get_trackEv
 libmlt++-7.so.7:_ZN3Mlt6FilterC1EP12mlt_filter_s
 libmlt++-7.so.7:_ZN3Mlt6FilterC1EP13mlt_profile_sPKcS4_
+libmlt++-7.so.7:_ZN3Mlt6FilterC1EPS0_
 libmlt++-7.so.7:_ZN3Mlt6FilterC1ERKS0_
 libmlt++-7.so.7:_ZN3Mlt6FilterC1ERNS_7ProfileEPKcS4_
 libmlt++-7.so.7:_ZN3Mlt6FilterC1ERNS_7ServiceE
@@ -342,6 +354,7 @@ libmlt++-7.so.7:_ZN3Mlt6FilterC1ERS0_
 libmlt++-7.so.7:_ZN3Mlt6FilterC1Ev
 libmlt++-7.so.7:_ZN3Mlt6FilterC2EP12mlt_filter_s
 libmlt++-7.so.7:_ZN3Mlt6FilterC2EP13mlt_profile_sPKcS4_
+libmlt++-7.so.7:_ZN3Mlt6FilterC2EPS0_
 libmlt++-7.so.7:_ZN3Mlt6FilterC2ERKS0_
 libmlt++-7.so.7:_ZN3Mlt6FilterC2ERNS_7ProfileEPKcS4_
 libmlt++-7.so.7:_ZN3Mlt6FilterC2ERNS_7ServiceE
@@ -429,10 +442,12 @@ libmlt++-7.so.7:_ZN3Mlt7Service8consumerEv
 libmlt++-7.so.7:_ZN3Mlt7Service8producerEv
 libmlt++-7.so.7:_ZN3Mlt7Service9get_frameEi
 libmlt++-7.so.7:_ZN3Mlt7ServiceC1EP13mlt_service_s
+libmlt++-7.so.7:_ZN3Mlt7ServiceC1EPS0_
 libmlt++-7.so.7:_ZN3Mlt7ServiceC1ERKS0_
 libmlt++-7.so.7:_ZN3Mlt7ServiceC1ERS0_
 libmlt++-7.so.7:_ZN3Mlt7ServiceC1Ev
 libmlt++-7.so.7:_ZN3Mlt7ServiceC2EP13mlt_service_s
+libmlt++-7.so.7:_ZN3Mlt7ServiceC2EPS0_
 libmlt++-7.so.7:_ZN3Mlt7ServiceC2ERKS0_
 libmlt++-7.so.7:_ZN3Mlt7ServiceC2ERS0_
 libmlt++-7.so.7:_ZN3Mlt7ServiceC2Ev
@@ -699,6 +714,7 @@ libmlt-7.so.7:MLT_6.6.0
 libmlt-7.so.7:MLT_6.8.0
 libmlt-7.so.7:MLT_7.0.0
 libmlt-7.so.7:MLT_7.1.0
+libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:default_callback
 libmlt-7.so.7:mlt_animation_close
 libmlt-7.so.7:mlt_animation_get_item
@@ -1075,6 +1091,7 @@ libmlt-7.so.7:mlt_properties_get_value_tf
 libmlt-7.so.7:mlt_properties_inc_ref
 libmlt-7.so.7:mlt_properties_inherit
 libmlt-7.so.7:mlt_properties_init
+libmlt-7.so.7:mlt_properties_is_anim
 libmlt-7.so.7:mlt_properties_is_sequence
 libmlt-7.so.7:mlt_properties_load
 libmlt-7.so.7:mlt_properties_lock
@@ -1129,6 +1146,7 @@ libmlt-7.so.7:mlt_property_get_string_tf
 libmlt-7.so.7:mlt_property_get_time
 libmlt-7.so.7:mlt_property_init
 libmlt-7.so.7:mlt_property_interpolate
+libmlt-7.so.7:mlt_property_is_anim
 libmlt-7.so.7:mlt_property_is_clear
 libmlt-7.so.7:mlt_property_pass
 libmlt-7.so.7:mlt_property_set_data
