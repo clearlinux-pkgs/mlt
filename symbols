@@ -14,6 +14,7 @@ libmlt++-7.so.7:MLTPP_6.8.0
 libmlt++-7.so.7:MLTPP_7.0.0
 libmlt++-7.so.7:MLTPP_7.1.0
 libmlt++-7.so.7:MLT_7.4.0
+libmlt++-7.so.7:MLT_7.6.0
 libmlt++-7.so.7:_ZN3Mlt10Multitrack10disconnectEi
 libmlt++-7.so.7:_ZN3Mlt10Multitrack12get_producerEv
 libmlt++-7.so.7:_ZN3Mlt10Multitrack14get_multitrackEv
@@ -65,6 +66,7 @@ libmlt++-7.so.7:_ZN3Mlt10Properties3setEPKcd
 libmlt++-7.so.7:_ZN3Mlt10Properties3setEPKcddddd
 libmlt++-7.so.7:_ZN3Mlt10Properties3setEPKci
 libmlt++-7.so.7:_ZN3Mlt10Properties3setEPKcl
+libmlt++-7.so.7:_ZN3Mlt10Properties4copyERS0_PKc
 libmlt++-7.so.7:_ZN3Mlt10Properties4dumpEP8_IO_FILE
 libmlt++-7.so.7:_ZN3Mlt10Properties4loadEPKc
 libmlt++-7.so.7:_ZN3Mlt10Properties4lockEv
@@ -628,6 +630,7 @@ libmlt++-7.so.7:_ZN3Mlt9Animation11interpolateEv
 libmlt++-7.so.7:_ZN3Mlt9Animation12key_get_typeEi
 libmlt++-7.so.7:_ZN3Mlt9Animation12key_set_typeEi17mlt_keyframe_type
 libmlt++-7.so.7:_ZN3Mlt9Animation12previous_keyEi
+libmlt++-7.so.7:_ZN3Mlt9Animation12previous_keyEiRi
 libmlt++-7.so.7:_ZN3Mlt9Animation12shift_framesEi
 libmlt++-7.so.7:_ZN3Mlt9Animation13key_get_frameEi
 libmlt++-7.so.7:_ZN3Mlt9Animation13key_set_frameEii
@@ -640,6 +643,7 @@ libmlt++-7.so.7:_ZN3Mlt9Animation6removeEi
 libmlt++-7.so.7:_ZN3Mlt9Animation7key_getEiRiR17mlt_keyframe_type
 libmlt++-7.so.7:_ZN3Mlt9Animation8get_itemEiRbR17mlt_keyframe_type
 libmlt++-7.so.7:_ZN3Mlt9Animation8next_keyEi
+libmlt++-7.so.7:_ZN3Mlt9Animation8next_keyEiRi
 libmlt++-7.so.7:_ZN3Mlt9Animation9key_countEv
 libmlt++-7.so.7:_ZN3Mlt9AnimationC1EP15mlt_animation_s
 libmlt++-7.so.7:_ZN3Mlt9AnimationC1ERKS0_
@@ -715,6 +719,7 @@ libmlt-7.so.7:MLT_6.8.0
 libmlt-7.so.7:MLT_7.0.0
 libmlt-7.so.7:MLT_7.1.0
 libmlt-7.so.7:MLT_7.4.0
+libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:default_callback
 libmlt-7.so.7:mlt_animation_close
 libmlt-7.so.7:mlt_animation_get_item
@@ -1063,6 +1068,7 @@ libmlt-7.so.7:mlt_properties_anim_set_int
 libmlt-7.so.7:mlt_properties_anim_set_rect
 libmlt-7.so.7:mlt_properties_clear
 libmlt-7.so.7:mlt_properties_close
+libmlt-7.so.7:mlt_properties_copy
 libmlt-7.so.7:mlt_properties_count
 libmlt-7.so.7:mlt_properties_debug
 libmlt-7.so.7:mlt_properties_dec_ref
@@ -1203,6 +1209,7 @@ libmlt-7.so.7:mlt_slices_count_rr
 libmlt-7.so.7:mlt_slices_run_fifo
 libmlt-7.so.7:mlt_slices_run_normal
 libmlt-7.so.7:mlt_slices_run_rr
+libmlt-7.so.7:mlt_slices_size_slice
 libmlt-7.so.7:mlt_tokeniser_close
 libmlt-7.so.7:mlt_tokeniser_count
 libmlt-7.so.7:mlt_tokeniser_get_input
