@@ -4,7 +4,7 @@
 #
 Name     : mlt
 Version  : 7.6.0
-Release  : 21
+Release  : 22
 URL      : https://github.com/mltframework/mlt/releases/download/v7.6.0/mlt-7.6.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v7.6.0/mlt-7.6.0.tar.gz
 Summary  : C++ API for MLT multimedia framework
@@ -135,7 +135,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1648658022
+export SOURCE_DATE_EPOCH=1652302403
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -148,7 +148,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1648658022
+export SOURCE_DATE_EPOCH=1652302403
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp %{_builddir}/mlt-7.6.0/COPYING %{buildroot}/usr/share/package-licenses/mlt/3704f4680301a60004b20f94e0b5b8c7ff1484a9
