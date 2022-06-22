@@ -720,6 +720,7 @@ libmlt-7.so.7:MLT_7.0.0
 libmlt-7.so.7:MLT_7.1.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
+libmlt-7.so.7:MLT_7.8.0
 libmlt-7.so.7:default_callback
 libmlt-7.so.7:mlt_animation_close
 libmlt-7.so.7:mlt_animation_get_item
@@ -887,6 +888,7 @@ libmlt-7.so.7:mlt_filter_set_in_and_out
 libmlt-7.so.7:mlt_frame_clone
 libmlt-7.so.7:mlt_frame_close
 libmlt-7.so.7:mlt_frame_get_alpha
+libmlt-7.so.7:mlt_frame_get_alpha_size
 libmlt-7.so.7:mlt_frame_get_aspect_ratio
 libmlt-7.so.7:mlt_frame_get_audio
 libmlt-7.so.7:mlt_frame_get_image
