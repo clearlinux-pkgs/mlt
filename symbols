@@ -718,6 +718,7 @@ libmlt-7.so.7:MLT_6.6.0
 libmlt-7.so.7:MLT_6.8.0
 libmlt-7.so.7:MLT_7.0.0
 libmlt-7.so.7:MLT_7.1.0
+libmlt-7.so.7:MLT_7.10.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:MLT_7.8.0
@@ -926,13 +927,16 @@ libmlt-7.so.7:mlt_image_alloc_data
 libmlt-7.so.7:mlt_image_calculate_size
 libmlt-7.so.7:mlt_image_close
 libmlt-7.so.7:mlt_image_fill_black
+libmlt-7.so.7:mlt_image_fill_checkerboard
 libmlt-7.so.7:mlt_image_fill_opaque
+libmlt-7.so.7:mlt_image_fill_white
 libmlt-7.so.7:mlt_image_format_id
 libmlt-7.so.7:mlt_image_format_name
 libmlt-7.so.7:mlt_image_format_planes
 libmlt-7.so.7:mlt_image_format_size
 libmlt-7.so.7:mlt_image_get_values
 libmlt-7.so.7:mlt_image_new
+libmlt-7.so.7:mlt_image_rgba_opaque
 libmlt-7.so.7:mlt_image_set_values
 libmlt-7.so.7:mlt_link_close
 libmlt-7.so.7:mlt_link_connect_next
