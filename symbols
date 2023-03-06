@@ -14,6 +14,7 @@ libmlt++-7.so.7:MLTPP_6.8.0
 libmlt++-7.so.7:MLTPP_7.0.0
 libmlt++-7.so.7:MLTPP_7.1.0
 libmlt++-7.so.7:MLT_7.12.0
+libmlt++-7.so.7:MLT_7.14.0
 libmlt++-7.so.7:MLT_7.4.0
 libmlt++-7.so.7:MLT_7.6.0
 libmlt++-7.so.7:_ZN3Mlt10Multitrack10disconnectEi
@@ -242,6 +243,7 @@ libmlt++-7.so.7:_ZN3Mlt5AudioD2Ev
 libmlt++-7.so.7:_ZN3Mlt5Chain10get_sourceEv
 libmlt++-7.so.7:_ZN3Mlt5Chain10set_sourceERNS_8ProducerE
 libmlt++-7.so.7:_ZN3Mlt5Chain12get_producerEv
+libmlt++-7.so.7:_ZN3Mlt5Chain18attach_normalizersEv
 libmlt++-7.so.7:_ZN3Mlt5Chain4linkEi
 libmlt++-7.so.7:_ZN3Mlt5Chain6attachERNS_4LinkE
 libmlt++-7.so.7:_ZN3Mlt5Chain6detachERNS_4LinkE
@@ -596,6 +598,7 @@ libmlt++-7.so.7:_ZN3Mlt8Producer4seekEi
 libmlt++-7.so.7:_ZN3Mlt8Producer5clearEv
 libmlt++-7.so.7:_ZN3Mlt8Producer5frameEv
 libmlt++-7.so.7:_ZN3Mlt8Producer5pauseEv
+libmlt++-7.so.7:_ZN3Mlt8Producer5probeEv
 libmlt++-7.so.7:_ZN3Mlt8Producer6get_inEv
 libmlt++-7.so.7:_ZN3Mlt8Producer6is_cutEv
 libmlt++-7.so.7:_ZN3Mlt8Producer6parentEv
@@ -723,6 +726,7 @@ libmlt-7.so.7:MLT_7.0.0
 libmlt-7.so.7:MLT_7.1.0
 libmlt-7.so.7:MLT_7.10.0
 libmlt-7.so.7:MLT_7.12.0
+libmlt-7.so.7:MLT_7.14.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:MLT_7.8.0
@@ -783,6 +787,7 @@ libmlt-7.so.7:mlt_cache_put
 libmlt-7.so.7:mlt_cache_put_frame
 libmlt-7.so.7:mlt_cache_set_size
 libmlt-7.so.7:mlt_chain_attach
+libmlt-7.so.7:mlt_chain_attach_normalizers
 libmlt-7.so.7:mlt_chain_close
 libmlt-7.so.7:mlt_chain_detach
 libmlt-7.so.7:mlt_chain_get_source
@@ -1047,6 +1052,7 @@ libmlt-7.so.7:mlt_producer_new
 libmlt-7.so.7:mlt_producer_optimise
 libmlt-7.so.7:mlt_producer_position
 libmlt-7.so.7:mlt_producer_prepare_next
+libmlt-7.so.7:mlt_producer_probe
 libmlt-7.so.7:mlt_producer_properties
 libmlt-7.so.7:mlt_producer_seek
 libmlt-7.so.7:mlt_producer_seek_time
