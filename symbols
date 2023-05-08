@@ -727,6 +727,7 @@ libmlt-7.so.7:MLT_7.1.0
 libmlt-7.so.7:MLT_7.10.0
 libmlt-7.so.7:MLT_7.12.0
 libmlt-7.so.7:MLT_7.14.0
+libmlt-7.so.7:MLT_7.16.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:MLT_7.8.0
@@ -785,6 +786,8 @@ libmlt-7.so.7:mlt_cache_item_data
 libmlt-7.so.7:mlt_cache_purge
 libmlt-7.so.7:mlt_cache_put
 libmlt-7.so.7:mlt_cache_put_frame
+libmlt-7.so.7:mlt_cache_put_frame_audio
+libmlt-7.so.7:mlt_cache_put_frame_image
 libmlt-7.so.7:mlt_cache_set_size
 libmlt-7.so.7:mlt_chain_attach
 libmlt-7.so.7:mlt_chain_attach_normalizers
@@ -811,6 +814,8 @@ libmlt-7.so.7:mlt_consumer_service
 libmlt-7.so.7:mlt_consumer_start
 libmlt-7.so.7:mlt_consumer_stop
 libmlt-7.so.7:mlt_consumer_stopped
+libmlt-7.so.7:mlt_deinterlacer_id
+libmlt-7.so.7:mlt_deinterlacer_name
 libmlt-7.so.7:mlt_deque_close
 libmlt-7.so.7:mlt_deque_count
 libmlt-7.so.7:mlt_deque_init
@@ -896,6 +901,8 @@ libmlt-7.so.7:mlt_filter_properties
 libmlt-7.so.7:mlt_filter_service
 libmlt-7.so.7:mlt_filter_set_in_and_out
 libmlt-7.so.7:mlt_frame_clone
+libmlt-7.so.7:mlt_frame_clone_audio
+libmlt-7.so.7:mlt_frame_clone_image
 libmlt-7.so.7:mlt_frame_close
 libmlt-7.so.7:mlt_frame_get_alpha
 libmlt-7.so.7:mlt_frame_get_alpha_size
@@ -949,6 +956,8 @@ libmlt-7.so.7:mlt_image_rgba_opaque
 libmlt-7.so.7:mlt_image_set_values
 libmlt-7.so.7:mlt_link_close
 libmlt-7.so.7:mlt_link_connect_next
+libmlt-7.so.7:mlt_link_filter_init
+libmlt-7.so.7:mlt_link_filter_metadata
 libmlt-7.so.7:mlt_link_init
 libmlt-7.so.7:mlt_log
 libmlt-7.so.7:mlt_log_get_level
