@@ -5,7 +5,7 @@
 #
 Name     : mlt
 Version  : 7.16.0
-Release  : 27
+Release  : 28
 URL      : https://github.com/mltframework/mlt/releases/download/v7.16.0/mlt-7.16.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v7.16.0/mlt-7.16.0.tar.gz
 Summary  : C++ API for MLT multimedia framework
@@ -140,7 +140,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683557119
+export SOURCE_DATE_EPOCH=1685593239
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -167,7 +167,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1683557119
+export SOURCE_DATE_EPOCH=1685593239
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp %{_builddir}/mlt-%{version}/COPYING %{buildroot}/usr/share/package-licenses/mlt/3704f4680301a60004b20f94e0b5b8c7ff1484a9 || :
@@ -185,7 +185,6 @@ popd
 
 %files bin
 %defattr(-,root,root,-)
-/V3/usr/bin/melt
 /V3/usr/bin/melt-7
 /usr/bin/melt
 /usr/bin/melt-7
@@ -526,8 +525,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmlt++-7.so
-/V3/usr/lib64/libmlt-7.so
 /usr/include/mlt-7/framework/mlt.h
 /usr/include/mlt-7/framework/mlt_animation.h
 /usr/include/mlt-7/framework/mlt_audio.h
@@ -599,9 +596,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmlt++-7.so.7
 /V3/usr/lib64/libmlt++-7.so.7.16.0
-/V3/usr/lib64/libmlt-7.so.7
 /V3/usr/lib64/libmlt-7.so.7.16.0
 /V3/usr/lib64/mlt-7/libmltavformat.so
 /V3/usr/lib64/mlt-7/libmltcore.so
