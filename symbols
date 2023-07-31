@@ -728,6 +728,7 @@ libmlt-7.so.7:MLT_7.10.0
 libmlt-7.so.7:MLT_7.12.0
 libmlt-7.so.7:MLT_7.14.0
 libmlt-7.so.7:MLT_7.16.0
+libmlt-7.so.7:MLT_7.18.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:MLT_7.8.0
@@ -767,6 +768,7 @@ libmlt-7.so.7:mlt_audio_close
 libmlt-7.so.7:mlt_audio_copy
 libmlt-7.so.7:mlt_audio_format_name
 libmlt-7.so.7:mlt_audio_format_size
+libmlt-7.so.7:mlt_audio_free_data
 libmlt-7.so.7:mlt_audio_get_planes
 libmlt-7.so.7:mlt_audio_get_values
 libmlt-7.so.7:mlt_audio_new

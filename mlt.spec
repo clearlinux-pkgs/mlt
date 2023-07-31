@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : mlt
-Version  : 7.16.0
-Release  : 28
-URL      : https://github.com/mltframework/mlt/releases/download/v7.16.0/mlt-7.16.0.tar.gz
-Source0  : https://github.com/mltframework/mlt/releases/download/v7.16.0/mlt-7.16.0.tar.gz
+Version  : 7.18.0
+Release  : 29
+URL      : https://github.com/mltframework/mlt/releases/download/v7.18.0/mlt-7.18.0.tar.gz
+Source0  : https://github.com/mltframework/mlt/releases/download/v7.18.0/mlt-7.18.0.tar.gz
 Summary  : C++ API for MLT multimedia framework
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
@@ -132,15 +132,15 @@ man components for the mlt package.
 
 
 %prep
-%setup -q -n mlt-7.16.0
-cd %{_builddir}/mlt-7.16.0
+%setup -q -n mlt-7.18.0
+cd %{_builddir}/mlt-7.18.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685593239
+export SOURCE_DATE_EPOCH=1690814695
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -167,7 +167,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1685593239
+export SOURCE_DATE_EPOCH=1690814695
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp %{_builddir}/mlt-%{version}/COPYING %{buildroot}/usr/share/package-licenses/mlt/3704f4680301a60004b20f94e0b5b8c7ff1484a9 || :
@@ -206,6 +206,7 @@ popd
 /usr/share/mlt-7/core/consumer_multi.yml
 /usr/share/mlt-7/core/filter_audiomap.yml
 /usr/share/mlt-7/core/filter_audiowave.yml
+/usr/share/mlt-7/core/filter_autofade.yml
 /usr/share/mlt-7/core/filter_box_blur.yml
 /usr/share/mlt-7/core/filter_brightness.yml
 /usr/share/mlt-7/core/filter_channelcopy.yml
@@ -596,8 +597,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmlt++-7.so.7.16.0
-/V3/usr/lib64/libmlt-7.so.7.16.0
+/V3/usr/lib64/libmlt++-7.so.7.18.0
+/V3/usr/lib64/libmlt-7.so.7.18.0
 /V3/usr/lib64/mlt-7/libmltavformat.so
 /V3/usr/lib64/mlt-7/libmltcore.so
 /V3/usr/lib64/mlt-7/libmltdecklink.so
@@ -618,9 +619,9 @@ popd
 /V3/usr/lib64/mlt-7/libmltxine.so
 /V3/usr/lib64/mlt-7/libmltxml.so
 /usr/lib64/libmlt++-7.so.7
-/usr/lib64/libmlt++-7.so.7.16.0
+/usr/lib64/libmlt++-7.so.7.18.0
 /usr/lib64/libmlt-7.so.7
-/usr/lib64/libmlt-7.so.7.16.0
+/usr/lib64/libmlt-7.so.7.18.0
 /usr/lib64/mlt-7/libmltavformat.so
 /usr/lib64/mlt-7/libmltcore.so
 /usr/lib64/mlt-7/libmltdecklink.so
