@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : mlt
-Version  : 7.18.0
-Release  : 31
-URL      : https://github.com/mltframework/mlt/releases/download/v7.18.0/mlt-7.18.0.tar.gz
-Source0  : https://github.com/mltframework/mlt/releases/download/v7.18.0/mlt-7.18.0.tar.gz
+Version  : 7.20.0
+Release  : 33
+URL      : https://github.com/mltframework/mlt/releases/download/v7.20.0/mlt-7.20.0.tar.gz
+Source0  : https://github.com/mltframework/mlt/releases/download/v7.20.0/mlt-7.20.0.tar.gz
 Summary  : C++ API for MLT multimedia framework
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
@@ -132,42 +132,65 @@ man components for the mlt package.
 
 
 %prep
-%setup -q -n mlt-7.18.0
-cd %{_builddir}/mlt-7.18.0
+%setup -q -n mlt-7.20.0
+cd %{_builddir}/mlt-7.20.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1690814695
+export SOURCE_DATE_EPOCH=1696258406
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 mkdir -p clr-build-avx2
 pushd clr-build-avx2
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
-export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
-export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
-export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd -march=x86-64-v3 "
-export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
-export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
-export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
-export FCFLAGS="$FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1690814695
+export GCC_IGNORE_WERROR=1
+CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CLEAR_INTERMEDIATE_CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS"
+CXXFLAGS="$CLEAR_INTERMEDIATE_CXXFLAGS"
+FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
+FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
+ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
+LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
+export SOURCE_DATE_EPOCH=1696258406
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp %{_builddir}/mlt-%{version}/COPYING %{buildroot}/usr/share/package-licenses/mlt/3704f4680301a60004b20f94e0b5b8c7ff1484a9 || :
@@ -204,7 +227,11 @@ popd
 /usr/share/mlt-7/avformat/yuv_only.txt
 /usr/share/mlt-7/chain_normalizers.ini
 /usr/share/mlt-7/core/consumer_multi.yml
+/usr/share/mlt-7/core/consumer_null.yml
+/usr/share/mlt-7/core/filter_audiochannels.yml
+/usr/share/mlt-7/core/filter_audioconvert.yml
 /usr/share/mlt-7/core/filter_audiomap.yml
+/usr/share/mlt-7/core/filter_audioseam.yml
 /usr/share/mlt-7/core/filter_audiowave.yml
 /usr/share/mlt-7/core/filter_autofade.yml
 /usr/share/mlt-7/core/filter_box_blur.yml
@@ -215,6 +242,7 @@ popd
 /usr/share/mlt-7/core/filter_fieldorder.yml
 /usr/share/mlt-7/core/filter_gamma.yml
 /usr/share/mlt-7/core/filter_greyscale.yml
+/usr/share/mlt-7/core/filter_imageconvert.yml
 /usr/share/mlt-7/core/filter_luma.yml
 /usr/share/mlt-7/core/filter_mask_apply.yml
 /usr/share/mlt-7/core/filter_mask_start.yml
@@ -230,6 +258,8 @@ popd
 /usr/share/mlt-7/core/link_timeremap.yml
 /usr/share/mlt-7/core/loader.dict
 /usr/share/mlt-7/core/loader.ini
+/usr/share/mlt-7/core/producer_abnormal.yml
+/usr/share/mlt-7/core/producer_blank.yml
 /usr/share/mlt-7/core/producer_colour.yml
 /usr/share/mlt-7/core/producer_consumer.yml
 /usr/share/mlt-7/core/producer_hold.yml
@@ -489,21 +519,6 @@ popd
 /usr/share/mlt-7/profiles/vcd_pal
 /usr/share/mlt-7/profiles/vertical_hd_30
 /usr/share/mlt-7/profiles/vertical_hd_60
-/usr/share/mlt-7/qt/filter_audiolevelgraph.yml
-/usr/share/mlt-7/qt/filter_audiospectrum.yml
-/usr/share/mlt-7/qt/filter_audiowaveform.yml
-/usr/share/mlt-7/qt/filter_gpsgraphic.yml
-/usr/share/mlt-7/qt/filter_gpstext.yml
-/usr/share/mlt-7/qt/filter_lightshow.yml
-/usr/share/mlt-7/qt/filter_qtblend.yml
-/usr/share/mlt-7/qt/filter_qtcrop.yml
-/usr/share/mlt-7/qt/filter_qtext.yml
-/usr/share/mlt-7/qt/filter_typewriter.yml
-/usr/share/mlt-7/qt/producer_kdenlivetitle.yml
-/usr/share/mlt-7/qt/producer_qimage.yml
-/usr/share/mlt-7/qt/producer_qtext.yml
-/usr/share/mlt-7/qt/transition_qtblend.yml
-/usr/share/mlt-7/qt/transition_vqm.yml
 /usr/share/mlt-7/resample/filter_resample.yml
 /usr/share/mlt-7/resample/link_resample.yml
 /usr/share/mlt-7/rtaudio/consumer_rtaudio.yml
@@ -597,8 +612,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmlt++-7.so.7.18.0
-/V3/usr/lib64/libmlt-7.so.7.18.0
+/V3/usr/lib64/libmlt++-7.so.7.20.0
+/V3/usr/lib64/libmlt-7.so.7.20.0
 /V3/usr/lib64/mlt-7/libmltavformat.so
 /V3/usr/lib64/mlt-7/libmltcore.so
 /V3/usr/lib64/mlt-7/libmltdecklink.so
@@ -609,7 +624,6 @@ popd
 /V3/usr/lib64/mlt-7/libmltoldfilm.so
 /V3/usr/lib64/mlt-7/libmltplus.so
 /V3/usr/lib64/mlt-7/libmltplusgpl.so
-/V3/usr/lib64/mlt-7/libmltqt.so
 /V3/usr/lib64/mlt-7/libmltresample.so
 /V3/usr/lib64/mlt-7/libmltrtaudio.so
 /V3/usr/lib64/mlt-7/libmltsdl.so
@@ -619,9 +633,9 @@ popd
 /V3/usr/lib64/mlt-7/libmltxine.so
 /V3/usr/lib64/mlt-7/libmltxml.so
 /usr/lib64/libmlt++-7.so.7
-/usr/lib64/libmlt++-7.so.7.18.0
+/usr/lib64/libmlt++-7.so.7.20.0
 /usr/lib64/libmlt-7.so.7
-/usr/lib64/libmlt-7.so.7.18.0
+/usr/lib64/libmlt-7.so.7.20.0
 /usr/lib64/mlt-7/libmltavformat.so
 /usr/lib64/mlt-7/libmltcore.so
 /usr/lib64/mlt-7/libmltdecklink.so
@@ -632,7 +646,6 @@ popd
 /usr/lib64/mlt-7/libmltoldfilm.so
 /usr/lib64/mlt-7/libmltplus.so
 /usr/lib64/mlt-7/libmltplusgpl.so
-/usr/lib64/mlt-7/libmltqt.so
 /usr/lib64/mlt-7/libmltresample.so
 /usr/lib64/mlt-7/libmltrtaudio.so
 /usr/lib64/mlt-7/libmltsdl.so
