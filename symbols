@@ -729,6 +729,7 @@ libmlt-7.so.7:MLT_7.12.0
 libmlt-7.so.7:MLT_7.14.0
 libmlt-7.so.7:MLT_7.16.0
 libmlt-7.so.7:MLT_7.18.0
+libmlt-7.so.7:MLT_7.22.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:MLT_7.8.0
@@ -1186,6 +1187,9 @@ libmlt-7.so.7:mlt_property_init
 libmlt-7.so.7:mlt_property_interpolate
 libmlt-7.so.7:mlt_property_is_anim
 libmlt-7.so.7:mlt_property_is_clear
+libmlt-7.so.7:mlt_property_is_color
+libmlt-7.so.7:mlt_property_is_numeric
+libmlt-7.so.7:mlt_property_is_rect
 libmlt-7.so.7:mlt_property_pass
 libmlt-7.so.7:mlt_property_set_color
 libmlt-7.so.7:mlt_property_set_data
