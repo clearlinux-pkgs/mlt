@@ -7,7 +7,7 @@
 #
 Name     : mlt
 Version  : 7.22.0
-Release  : 39
+Release  : 40
 URL      : https://github.com/mltframework/mlt/releases/download/v7.22.0/mlt-7.22.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v7.22.0/mlt-7.22.0.tar.gz
 Summary  : C++ API for MLT multimedia framework
