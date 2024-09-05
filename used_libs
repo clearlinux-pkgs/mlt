@@ -24,8 +24,6 @@ libjack.so.0
 libm.so.6
 libpango-1.0.so.0
 libpangoft2-1.0.so.0
-libpulse-simple.so.0
-libpulse.so.0
 libsamplerate.so.0
 libsox.so.3
 libstdc++.so.6
