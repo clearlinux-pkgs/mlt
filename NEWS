@@ -1,6 +1,94 @@
 MLT Release Notes
 -----------------
 
+Version 7.28.0
+
+This fixes a couple of major regressions in the previous version 7.26.0:
+  * Fixed seeking and frozen video due by reverting "Improved performance with
+    intra-only video and reducing the frame rate."
+  * Fixed using `melt` to render MLT XML with OpenGL effects from `movit`.
+
+Other fixes and changes:
+  * Deprecated the `composite` transition and the `sdl` and `ndi` modules.
+  * Fixed Android camera video has the wrong frame rate (broken in v7.26.0).
+  * Fixed audio not playing for audio-only DTS WMA.
+  * Fixed using "https:" URLs in the `xml` producer.
+  * Fixed crash on exit when running `melt -query` or `melt -query links`.
+  * Added a `transition` property to the `watermark` filter. Now, it defaults
+    to using `affine`.
+  * Changed `affine` transition argument to set `rect` property if supplied.
+
+
+Version 7.26.0
+
+Framework
+  * Fixed a double-free crash in `Mlt::Service::profile()`.
+
+Modules
+  * Fixes and improvements to the `avformat` producer:
+    - Changed to prefer `r_frame_rate` over `avg_frame_rate`.
+    - Fixed `lowres` if set too high.
+    - Fixed `audio_index=all`.
+    - Fixed `variable_frame_rate` incorrectly set true on 59.94 fps in Matroska.
+    - Improved performance with intra-only video and reducing the frame rate.
+    - Fixed mono audio handling regression on FFmpeg 7.
+    - Fixed audio samples may be dropped unexpectly esp. with uncompressed.
+  * Fixed `movit` transitions with a non-movit filter on one of its inputs.
+  * Fixed duration in the `glaxnimate` producer off by one frame.
+  * Added `dropshadow` filter to the `qt` module.
+  * Fixed resetting animation in `kdenlivetitle` producer.
+  * Added support for LV2 and VST2 plugins in the `jackrack` module.
+  * Fixed crash using `av.declick` audio filter on FFmpeg 7.
+  * Added `subtitle` filter and producer and `subtitle_feed` filter to the `plus` module.
+  * Added subtitle encoding to the `avformat` consumer (new properties beginning with "subtitle.").
+  * Fixed `alang` in the the `avformat` consumer.
+  * Added `#gps_power` keyword to the `gpstext` filter.
+  * Fixed tab handling in the `kdenlivetitle` producer.
+
+Other
+  * Added 8- and 10-bit encode presets for SVT-AV1.
+  * Fixed building on OpenBSD.
+  * Fixed building on musl libc.
+  * Fixed consumer properties not updating the automatic profile on the `melt` command line.
+  * Added `-loglevel` command line option to `melt`.
+
+
+Version 7.24.0
+
+Framework
+  * Fixed a small memory leak in `mlt_repository`.
+  * Fixed a small memory leak in `MltPushConsumer` C++ class.
+  * Block connecting a null producer to a service.
+  * Include `locale.h` on any GNU libc platform.
+
+Modules
+  * Added a new `spatialaudio` module with filters:
+    - `ambisonic-decoder`
+    - `ambisonic-encoder`
+  * Fixed building with FFmpeg 7.
+  * Fixed text keywords do not work with non-ASCII filenames on Windows:
+    - `pixbuf` producer
+    - `opencv_tracker` filter
+    - `dynamictext` filter
+    - `qimage` producer
+  * Added "meta.media.aspect_ratio" property to the `avformat` producer.
+  * Fixed `distort` property not working in `movit.rect` filter.
+  * Fixed frames dropping or repeating in the `multi` consumer.
+  * Fixed the `dynamic_loudness` filter maximizing audio gain.
+  * Fixed distortion in the `mono` filter.
+  * Also check for `WAYLAND_DISPLAY` to detect a graphical session in the `qt`
+    and `glaxnimate` modules.
+  * Fixed the `wave` filter distorts if `wave` = 1 with preview scaling.
+  * Added the read-only `meta.media.%u.codec.layout` property to `avformat` producer.
+  * Set the `channel_layout` property on the frame for the `noise` and `tone`
+    audio producers.
+  * Fixed `outline` maximum for the `text` and `dynamictext` filters.
+
+Other
+  * Fixed crash when using `-chain` from `melt`.
+  * Fixed a small memory leak on Windows `fopen()`.
+
+
 Version 7.22.0
 
 Framework
