@@ -6,10 +6,10 @@
 # autospec commit: f4a13a5
 #
 Name     : mlt
-Version  : 7.28.0
-Release  : 52
-URL      : https://github.com/mltframework/mlt/releases/download/v7.28.0/mlt-7.28.0.tar.gz
-Source0  : https://github.com/mltframework/mlt/releases/download/v7.28.0/mlt-7.28.0.tar.gz
+Version  : 7.30.0
+Release  : 53
+URL      : https://github.com/mltframework/mlt/releases/download/v7.30.0/mlt-7.30.0.tar.gz
+Source0  : https://github.com/mltframework/mlt/releases/download/v7.30.0/mlt-7.30.0.tar.gz
 Summary  : MLT multimedia framework
 Group    : Development/Tools
 License  : LGPL-2.1 MIT
@@ -157,10 +157,10 @@ man components for the mlt package.
 
 
 %prep
-%setup -q -n mlt-7.28.0
-cd %{_builddir}/mlt-7.28.0
+%setup -q -n mlt-7.30.0
+cd %{_builddir}/mlt-7.30.0
 pushd ..
-cp -a mlt-7.28.0 buildavx2
+cp -a mlt-7.30.0 buildavx2
 popd
 
 %build
@@ -168,7 +168,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1736356673
+export SOURCE_DATE_EPOCH=1737388621
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -222,7 +222,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1736356673
+export SOURCE_DATE_EPOCH=1737388621
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/mlt
 cp %{_builddir}/mlt-%{version}/COPYING %{buildroot}/usr/share/package-licenses/mlt/3704f4680301a60004b20f94e0b5b8c7ff1484a9 || :
@@ -351,6 +351,9 @@ popd
 /usr/share/mlt-7/plus/filter_dynamic_loudness.yml
 /usr/share/mlt-7/plus/filter_dynamictext.yml
 /usr/share/mlt-7/plus/filter_fft.yml
+/usr/share/mlt-7/plus/filter_gradientmap.yml
+/usr/share/mlt-7/plus/filter_hslprimaries.yml
+/usr/share/mlt-7/plus/filter_hslrange.yml
 /usr/share/mlt-7/plus/filter_invert.yml
 /usr/share/mlt-7/plus/filter_lift_gamma_gain.yml
 /usr/share/mlt-7/plus/filter_loudness.yml
@@ -593,6 +596,7 @@ popd
 /usr/share/mlt-7/xine/link_deinterlace.yml
 /usr/share/mlt-7/xml/consumer_xml.yml
 /usr/share/mlt-7/xml/mlt-xml.dtd
+/usr/share/mlt-7/xml/producer_xml-clip.yml
 /usr/share/mlt-7/xml/producer_xml-nogl.yml
 /usr/share/mlt-7/xml/producer_xml-string.yml
 /usr/share/mlt-7/xml/producer_xml.yml
@@ -670,8 +674,8 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libmlt++-7.so.7.28.0
-/V3/usr/lib64/libmlt-7.so.7.28.0
+/V3/usr/lib64/libmlt++-7.so.7.30.0
+/V3/usr/lib64/libmlt-7.so.7.30.0
 /V3/usr/lib64/mlt-7/libmltavformat.so
 /V3/usr/lib64/mlt-7/libmltcore.so
 /V3/usr/lib64/mlt-7/libmltdecklink.so
@@ -692,9 +696,9 @@ popd
 /V3/usr/lib64/mlt-7/libmltxine.so
 /V3/usr/lib64/mlt-7/libmltxml.so
 /usr/lib64/libmlt++-7.so.7
-/usr/lib64/libmlt++-7.so.7.28.0
+/usr/lib64/libmlt++-7.so.7.30.0
 /usr/lib64/libmlt-7.so.7
-/usr/lib64/libmlt-7.so.7.28.0
+/usr/lib64/libmlt-7.so.7.30.0
 /usr/lib64/mlt-7/libmltavformat.so
 /usr/lib64/mlt-7/libmltcore.so
 /usr/lib64/mlt-7/libmltdecklink.so

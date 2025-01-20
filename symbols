@@ -379,6 +379,7 @@ libmlt-7.so.7:MLT_7.14.0
 libmlt-7.so.7:MLT_7.16.0
 libmlt-7.so.7:MLT_7.18.0
 libmlt-7.so.7:MLT_7.22.0
+libmlt-7.so.7:MLT_7.30.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:MLT_7.8.0
@@ -602,6 +603,7 @@ libmlt-7.so.7:mlt_image_format_id@@MLT_6.6.0
 libmlt-7.so.7:mlt_image_format_name@@MLT_0.8.8
 libmlt-7.so.7:mlt_image_format_planes@@MLT_6.6.0
 libmlt-7.so.7:mlt_image_format_size@@MLT_0.8.8
+libmlt-7.so.7:mlt_image_full_range@@MLT_7.30.0
 libmlt-7.so.7:mlt_image_get_values@@MLT_7.0.0
 libmlt-7.so.7:mlt_image_new@@MLT_7.0.0
 libmlt-7.so.7:mlt_image_rgba_opaque@@MLT_7.10.0
