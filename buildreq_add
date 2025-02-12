@@ -2,7 +2,6 @@
 # picked up automatically. One name per line, no whitespace.
 SDL2-dev
 libxml2-dev
-sox-dev
 opencv-dev
 fftw-dev
 gtk+-dev
