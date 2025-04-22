@@ -7,7 +7,7 @@
 #
 Name     : mlt
 Version  : 7.30.0
-Release  : 57
+Release  : 58
 URL      : https://github.com/mltframework/mlt/releases/download/v7.30.0/mlt-7.30.0.tar.gz
 Source0  : https://github.com/mltframework/mlt/releases/download/v7.30.0/mlt-7.30.0.tar.gz
 Summary  : MLT multimedia framework
