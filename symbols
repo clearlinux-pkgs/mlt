@@ -15,6 +15,7 @@ libmlt++-7.so.7:MLTPP_7.0.0
 libmlt++-7.so.7:MLTPP_7.1.0
 libmlt++-7.so.7:MLT_7.12.0
 libmlt++-7.so.7:MLT_7.14.0
+libmlt++-7.so.7:MLT_7.32.0
 libmlt++-7.so.7:MLT_7.4.0
 libmlt++-7.so.7:MLT_7.6.0
 libmlt++-7.so.7:_ZN3Mlt10Multitrack10disconnectEi
@@ -435,6 +436,7 @@ libmlt++-7.so.7:_ZN3Mlt7Service11move_filterEii
 libmlt++-7.so.7:_ZN3Mlt7Service11set_profileEP13mlt_profile_s
 libmlt++-7.so.7:_ZN3Mlt7Service11set_profileERNS_7ProfileE
 libmlt++-7.so.7:_ZN3Mlt7Service12filter_countEv
+libmlt++-7.so.7:_ZN3Mlt7Service12set_consumerERS0_
 libmlt++-7.so.7:_ZN3Mlt7Service14get_propertiesEv
 libmlt++-7.so.7:_ZN3Mlt7Service15insert_producerERS0_i
 libmlt++-7.so.7:_ZN3Mlt7Service16connect_producerERS0_i
@@ -732,6 +734,7 @@ libmlt-7.so.7:MLT_7.16.0
 libmlt-7.so.7:MLT_7.18.0
 libmlt-7.so.7:MLT_7.22.0
 libmlt-7.so.7:MLT_7.30.0
+libmlt-7.so.7:MLT_7.32.0
 libmlt-7.so.7:MLT_7.4.0
 libmlt-7.so.7:MLT_7.6.0
 libmlt-7.so.7:MLT_7.8.0
@@ -1241,6 +1244,7 @@ libmlt-7.so.7:mlt_service_move_filter
 libmlt-7.so.7:mlt_service_producer
 libmlt-7.so.7:mlt_service_profile
 libmlt-7.so.7:mlt_service_properties
+libmlt-7.so.7:mlt_service_set_consumer
 libmlt-7.so.7:mlt_service_set_profile
 libmlt-7.so.7:mlt_service_unlock
 libmlt-7.so.7:mlt_slices_count_fifo
